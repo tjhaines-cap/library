@@ -32,7 +32,7 @@ RSpec.describe 'library show page' do
     it 'displays library closed' do
         library = Library.create!(name: "Arapahoe", branch_num: 1, city: "Centennial", open: false)
         visit "/libraries/#{library.id}"
-        save_and_open_page
+        
         expect(page).to have_content("We are closed")
     end
 end
