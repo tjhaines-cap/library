@@ -1,1 +1,9 @@
-<p><%= @library.name %><p>
+<h1><%= @library.name %></h1>
+<p>Branch number: <%= @library.branch_num %></p>
+<p>City: <%= @library.city %></p>
+<% if @library.open %>
+    <%= "We are open" %>
+<% else %>
+    <%= "We are closed" %>
+<% end %>
+
