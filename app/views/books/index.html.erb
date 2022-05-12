@@ -1,4 +1,7 @@
 <h1>Books</h1>
 <% @books.each do |book| %>
-    <p><%= book.title %></p>
+    <h3><%= book.title %></h3>
+    <p>Author: <%= book.author %></p>
+    <p>Copyright: <%= book.copyright %></p>
+    <p>Available: <%= book.available %></p>
 <% end %>
