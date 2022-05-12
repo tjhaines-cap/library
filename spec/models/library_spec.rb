@@ -11,6 +11,6 @@ RSpec.describe Library, type: :model do
     end
 
     describe 'relationships' do
-
+        it { should have_many :books }
     end
 end
