@@ -11,6 +11,7 @@ RSpec.describe 'books show page' do
         visit "/books/#{@book1.id}"
 
         expect(page).to have_content(@book1.title)
-        expect(page).to not_have_content(@book2.title)
+        expect(page).to have_no_content(@book2.title)
     end
+
 end
