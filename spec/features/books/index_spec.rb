@@ -36,6 +36,8 @@ RSpec.describe 'books index page' do
         book = library.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
         book2 = library.books.create!(title: "Of Mice and Men", author: "John Steinbeck", copyright: 1937, available: false)
         visit "/books"
+
+        save_and_open_page
         
         expect(page).to have_content("Available: #{book.available}")
         expect(page).to have_content("Available: #{book2.available}")
