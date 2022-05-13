@@ -1,2 +1,7 @@
 <h1><%=@book.title%></h1>
-<p><%=@book.author%></p>
+<p>ID: <%=@book.id%></p>
+<p>Author: <%=@book.author%></p>
+<p>Copyright: <%=@book.copyright%></p>
+<p>Available: <%=@book.copyright ? "Yes" : "No" %></p>
+<p>Created: <%=@book.created_at %></p>
+<p>Updated: <%=@book.updated_at %></p>
