@@ -14,14 +14,14 @@ RSpec.describe 'Library books index' do
         expect(page).to have_content(@book2.title)
     end
 
-    xit 'displays all the authors of the books in the library' do
+    it 'displays all the authors of the books in the library' do
         visit "/libraries/#{@koelbel.id}/books"
 
         expect(page).to have_content("Author: #{@book1.author}")
         expect(page).to have_content("Author: #{@book2.author}")
     end
 
-    xit 'displays all the copyrights of the books in the library' do
+    it 'displays all the copyrights of the books in the library' do
         visit "/libraries/#{@koelbel.id}/books"
 
         expect(page).to have_content("Copyright: #{@book1.copyright}")
@@ -29,7 +29,7 @@ RSpec.describe 'Library books index' do
 
     end
 
-    xit 'displays if each book is available' do
+    it 'displays if each book is available' do
         visit "/libraries/#{@koelbel.id}/books"
 
         expect(page).to have_content("Available: Yes")
@@ -37,9 +37,11 @@ RSpec.describe 'Library books index' do
 
     end
 
-    xit 'displays id and created_at updated_at for each book' do
+    it 'displays id and created_at updated_at for each book' do
         visit "/libraries/#{@koelbel.id}/books"
 
+        save_and_open_page
+        
         expect(page).to have_content("ID: #{@book1.id}")
         expect(page).to have_content("ID: #{@book2.id}")
         expect(page).to have_content("Created: #{@book1.created_at}")
