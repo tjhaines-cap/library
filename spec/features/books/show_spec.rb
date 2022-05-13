@@ -14,4 +14,36 @@ RSpec.describe 'books show page' do
         expect(page).to have_no_content(@book2.title)
     end
 
+    it 'displays book author' do
+        visit "/books/#{@book1.id}"
+
+        expect(page).to have_content("Author: #{@book1.author}")
+        expect(page).to have_no_content("Author: #{@book2.author}")
+    end
+
+    it 'displays book copyright year' do
+        visit "/books/#{@book1.id}"
+
+        expect(page).to have_content("Copyright: #{@book1.copyright}")
+        expect(page).to have_no_content("Copyright: #{@book2.copyright}")
+    end
+
+    it 'displays if the book is available or not' do
+        visit "/books/#{@book1.id}"
+
+        expect(page).to have_content("Available: #{@book1.available}")
+        expect(page).to have_no_content("Available: #{@book2.available}")
+    end
+
+    it 'displays the book id, created_at, and updated_at' do
+        visit "/books/#{@book1.id}"
+
+        expect(page).to have_content("ID: #{@book1.id}")
+        expect(page).to have_no_content("ID: #{@book2.id}")
+        expect(page).to have_content("Created_at: #{@book1.created_at}")
+        expect(page).to have_no_content("Created_at: #{@book2.created_at}")
+        expect(page).to have_content("Updated_at: #{@book1.updated_at}")
+        expect(page).to have_no_content("Updated_at: #{@book2.updated_at}")
+    end
+
 end
