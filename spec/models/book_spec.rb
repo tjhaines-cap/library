@@ -11,6 +11,6 @@ RSpec.describe Book, type: :model do
     end
 
     describe 'relationships' do
-
+        it { should belong_to :library }
     end
 end
