@@ -6,7 +6,6 @@ RSpec.describe 'library index page' do
         library2 = Library.create!(name: "Sheridan", branch_num: 2, city: "Denver", open: false)
         visit "/libraries"
 
-        save_and_open_page
         expect(page).to have_content("#{library.name} created: #{library.created_at}")
         expect(page).to have_content("#{library2.name} created: #{library2.created_at}")
     end
