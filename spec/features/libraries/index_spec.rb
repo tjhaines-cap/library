@@ -13,7 +13,7 @@ RSpec.describe 'library index page' do
     it 'has link to child index page' do
         visit "/libraries"
 
-        click_on "All books"
+        click_on "View all books"
 
         expect(current_path).to eq("/books")
     end
