@@ -40,8 +40,6 @@ RSpec.describe 'Library books index' do
     it 'displays id and created_at updated_at for each book' do
         visit "/libraries/#{@koelbel.id}/books"
 
-        save_and_open_page
-        
         expect(page).to have_content("ID: #{@book1.id}")
         expect(page).to have_content("ID: #{@book2.id}")
         expect(page).to have_content("Created: #{@book1.created_at}")
