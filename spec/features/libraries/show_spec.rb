@@ -45,6 +45,6 @@ RSpec.describe 'library show page' do
        
         visit "/libraries/#{sheridan.id}"
 
-        expect(page).to have_content("Number of books: 4")
+        expect(page).to have_content("We have 4 books")
     end
 end
