@@ -3,7 +3,7 @@ class Library < ApplicationRecord
     validates_presence_of :name, :branch_num, :city
     validates :open, inclusion: [true, false]
 
-    def sort_by_created_at
+    def self.sort_by_created_at
         Library.order(:created_at).reverse_order
     end
 end
