@@ -47,4 +47,14 @@ RSpec.describe 'library show page' do
 
         expect(page).to have_content("We have 4 books")
     end
+
+    it 'has link to books index' do
+        sheridan = Library.create!(name: "Sheridan", branch_num: 3, city: "Denver", open: false)
+        
+        visit "/libraries/#{sheridan.id}"
+
+        click_on "View all books"
+
+        expect(current_path).to eq("/books")
+    end
 end

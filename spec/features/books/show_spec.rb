@@ -44,4 +44,12 @@ RSpec.describe 'books show page' do
         expect(page).to have_content("Updated: #{@book1.updated_at}")
     end
 
+    it 'has link to books index' do
+        visit "/books/#{@book1.id}"
+
+        click_on "View all books"
+        
+        expect(current_path).to eq("/books")
+    end
+
 end
