@@ -9,4 +9,12 @@ RSpec.describe 'library index page' do
         expect(page).to have_content("#{library.name} created: #{library.created_at}")
         expect(page).to have_content("#{library2.name} created: #{library2.created_at}")
     end
+
+    it 'has link to child index page' do
+        visit "/libraries"
+
+        click_on "All books"
+
+        expect(current_path).to eq("/books")
+    end
 end
