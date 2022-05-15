@@ -67,4 +67,15 @@ RSpec.describe 'library show page' do
 
         expect(current_path).to eq("/libraries")
     end
+
+    it 'has link to the books show page of this library' do
+        sheridan = Library.create!(name: "Sheridan", branch_num: 3, city: "Denver", open: false)
+        sheridan.books.create!(title: "Pride and Prejudice", author: "Jane Austen", copyright: 1813, available: true)
+        
+        visit "/libraries/#{sheridan.id}"
+        
+        click_on "View #{sheridan.name} library book list"
+
+        expect(current_path).to eq("/libraries/#{sheridan.id}/books")
+    end
 end

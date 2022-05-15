@@ -1,5 +1,6 @@
 <p><%= link_to "View all libraries", "/libraries" %></p>
 <p><%= link_to "View all books", "/books" %></p> 
+<p><%= link_to "View #{@library.name} library book list", "/libraries/#{@library.id}/books" %></p> 
 <h1><%= @library.name %></h1>
 <p>We have <%= @library.books.count %> books</p>
 <p>Branch number: <%= @library.branch_num %></p>
