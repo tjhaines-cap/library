@@ -3,3 +3,4 @@
 <% @libraries.each do |library| %>
     <p><%= library.name %> created: <%= library.created_at %></p>
 <% end %>
+<%= link_to "New Library", "/libraries/new"%>

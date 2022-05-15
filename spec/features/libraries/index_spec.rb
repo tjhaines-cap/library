@@ -17,4 +17,6 @@ RSpec.describe 'library index page' do
 
         expect(current_path).to eq("/books")
     end
+
+    
 end
