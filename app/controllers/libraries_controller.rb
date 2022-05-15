@@ -18,4 +18,7 @@ class LibrariesController < ApplicationController
     def library_params
         params.permit(:name, :branch_num, :city, :open)
     end
+
+    def edit
+    end
 end

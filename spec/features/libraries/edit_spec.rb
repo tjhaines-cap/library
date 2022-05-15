@@ -17,7 +17,7 @@ RSpec.describe 'Library update' do
     it 'has link to library edit page' do
         koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
         visit '/libraries' 
-
+        
         click_link("Update #{koelbel.name} Library")
 
         expect(current_path).to eq("/libraries/#{koelbel.id}/edit")
