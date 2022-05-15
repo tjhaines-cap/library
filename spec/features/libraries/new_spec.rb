@@ -19,4 +19,15 @@ RSpec.describe 'Library creation' do
 
         expect(current_path).to eq('/libraries/new')
     end
+
+    it 'can create a new library' do
+        visit '/libraries/new' 
+
+        fill_in('Name', with: "Koelbel")
+        click_button('Create Library')
+        library_id = Library.last.id
+        
+        expect(current_path).to eq("/libraries/#{library_id}")
+        expect(page).to have_content("Koelbel")
+    end
 end
