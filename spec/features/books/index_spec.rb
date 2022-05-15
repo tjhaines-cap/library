@@ -41,5 +41,23 @@ RSpec.describe 'books index page' do
         expect(page).to have_content("Available: #{book2.available}")
     end
 
+    it 'displays id, created_at, and updated_at attributes' do
+        library = Library.create!(name: "Arapahoe", branch_num: 1, city: "Centennial", open: true)
+        book = library.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
+        visit "/books"
+
+        expect(page).to have_content("ID: #{book.id}")
+        expect(page).to have_content("Created: #{book.created_at}")
+        expect(page).to have_content("Updated: #{book.updated_at}")
+    end
+
+    it 'has link to libraries index' do
+        visit "/books"
+        
+        click_on "View all libraries"
+        
+        expect(current_path).to eq("/libraries")
+    end
+
    
 end
