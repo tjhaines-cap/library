@@ -46,7 +46,7 @@ RSpec.describe 'books show page' do
 
     it 'has link to books index' do
         visit "/books/#{@book1.id}"
-
+        
         click_on "View all books"
         
         expect(current_path).to eq("/books")
