@@ -11,11 +11,11 @@ class LibrariesController < ApplicationController
     end
 
     def create
-        library = Library.create!(
-            name: params[:name], 
-            branch_num: params[:branch_num],
-            city: params[:city],
-            open: params[:open])
-        redirect_to "/libraries/#{library.id}"
+        library = Library.create!(library_params)
+        redirect_to "/libraries"
+    end
+
+    def library_params
+        params.permit(:name, :branch_num, :city, :open)
     end
 end

@@ -30,7 +30,7 @@ RSpec.describe 'Library creation' do
         click_button('Create Library')
         library_id = Library.last.id
 
-        expect(current_path).to eq("/libraries/#{library_id}")
+        expect(current_path).to eq("/libraries")
         expect(page).to have_content("Smoky Hill")
     end
 end
