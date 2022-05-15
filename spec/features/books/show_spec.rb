@@ -52,4 +52,11 @@ RSpec.describe 'books show page' do
         expect(current_path).to eq("/books")
     end
 
+    it 'has link to libraries index' do
+        visit "/books/#{@book1.id}"
+        
+        click_on "View all libraries"
+        
+        expect(current_path).to eq("/libraries")
+    end
 end
