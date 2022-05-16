@@ -37,5 +37,8 @@ RSpec.describe 'Library book creation', type: :feature do
 
         expect(current_path).to eq("/libraries/#{koelbel.id}/books")
         expect(page).to have_content("Treasure Island")
+        expect(page).to have_content("Robert Louis Stevenson")
+        expect(page).to have_content("1883")
+        expect(page).to have_content("Available: Yes")
     end
 end

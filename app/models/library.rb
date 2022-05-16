@@ -4,6 +4,6 @@ class Library < ApplicationRecord
     validates :open, inclusion: [true, false]
 
     def self.sort_by_created_at
-        Library.order(:created_at).reverse_order
+        Library.order(created_at: :desc)
     end
 end
