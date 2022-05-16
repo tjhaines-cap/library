@@ -18,7 +18,7 @@ RSpec.describe 'Library book creation', type: :feature do
         koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
 
         visit "/libraries/#{koelbel.id}/books"
-        click_link "Create Book"
+        click_link "Create book"
 
         expect(current_path).to eq("/libraries/#{koelbel.id}/books/new")
     end
