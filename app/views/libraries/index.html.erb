@@ -1,6 +1,8 @@
 <%= link_to "View all books", "/books" %> 
 <h1>Libraries</h1>
-<% @libraries.each do |library| %>
-    <p><%= library.name %> created: <%= library.created_at %> <%= link_to "Update #{library.name} Library", "/libraries/#{library.id}/edit"%></p>
+<% @libraries.order_by_recent.each_with_index do |library, index| %>
+    <div id="library-<%= index %>">
+        <p><%= library.name %> created: <%= library.created_at %> <%= link_to "Update #{library.name} Library", "/libraries/#{library.id}/edit"%></p>
+    </div>
 <% end %>
 <%= link_to "New Library", "/libraries/new"%>
