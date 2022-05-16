@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Library books index' do
+RSpec.describe 'Library books index', type: :feature do
     before :each do
         @koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
         @book1 = @koelbel.books.create!(title: "Leaves of Grass", author: "Walt Whitman", copyright: 1855, available: true)
