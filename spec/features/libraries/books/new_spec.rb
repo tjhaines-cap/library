@@ -18,8 +18,24 @@ RSpec.describe 'Library book creation', type: :feature do
         koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
 
         visit "/libraries/#{koelbel.id}/books"
-        click_link "Create book"
+        click_link "Create Book"
 
         expect(current_path).to eq("/libraries/#{koelbel.id}/books/new")
+    end
+
+    it 'can create a new book for the library' do
+        koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
+
+        visit "/libraries/#{koelbel.id}/books/new" 
+
+        fill_in('title', with: "Treasure Island")
+        fill_in('author', with: "Robert Louis Stevenson")
+        fill_in('copyright', with: 1883)
+        fill_in('available', with: true)
+        click_button('Create Book')
+        book_id = Book.last.id
+
+        expect(current_path).to eq("/libraries/#{koelbel.id}/books")
+        expect(page).to have_content("Treasure Island")
     end
 end
