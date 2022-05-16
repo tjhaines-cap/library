@@ -1,7 +1,7 @@
 require 'rails_helper' 
 
-RSpec.describe 'Library creation' do
-    it 'links to new library page from library index' do
+RSpec.describe 'Library creation', type: :feature do
+    it 'has link to new library page from library index' do
         visit '/libraries' 
 
         click_link("New Library")

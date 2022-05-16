@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'books index page' do
+RSpec.describe 'books index page', type: :feature do
     it 'displays all book titles' do
         library = Library.create!(name: "Arapahoe", branch_num: 1, city: "Centennial", open: true)
         book = library.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)

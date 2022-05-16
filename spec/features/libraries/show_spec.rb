@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'library show page' do
+RSpec.describe 'library show page', type: :feature do
     it 'displays library name' do
         library = Library.create!(name: "Arapahoe", branch_num: 1, city: "Centennial", open: true)
         visit "/libraries/#{library.id}"
