@@ -6,4 +6,8 @@ class Book < ApplicationRecord
     def self.available
         Book.where(available: true)
     end
+
+    def self.order_by_title
+        Book.order(:title)
+    end
 end

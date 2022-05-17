@@ -35,7 +35,7 @@ RSpec.describe Book, type: :model do
             book3 = koelbel.books.create!(title: "Dune", author: "Frank Herbert", copyright: 1965, available: false)
             book4 = koelbel.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
 
-            orderd_books = Book.order_by_title
+            ordered_books = Book.order_by_title
             expect(ordered_books).to eq([book3, book1, book2, book4])
         end
     end
