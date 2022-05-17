@@ -18,12 +18,18 @@ RSpec.describe 'Book update', type: :feature do
         dune = koelbel.books.create!(title: "Random", author: "Unknown", copyright: 1965, available: false)
 
         visit "/books/#{dune.id}" 
-        expect(page).to have_content("Random")
-        expect(page).to have_content("Unknown")
-        
-        click_link("Update #{dune.title}")
+        click_link("Update Book")
 
         expect(current_path).to eq("/books/#{dune.id}/edit")
+    end
+
+    xit 'can edit book' do 
+        koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
+        dune = koelbel.books.create!(title: "Random", author: "Unknown", copyright: 1965, available: false)
+
+        visit "/books/#{dune.id}" 
+        expect(page).to have_content("Random")
+        expect(page).to have_content("Unknown")
     end
 
 end
