@@ -64,4 +64,12 @@ RSpec.describe 'Library books index', type: :feature do
         expect(current_path).to eq("/libraries")
     end
 
+    it 'has link to sort children in alphabetical order' do
+        visit "/libraries/#{@koelbel.id}/books"
+        
+        click_on "Sort books alphabetically"
+
+        expect(current_path).to eq("/libraries/#{@koelbel.id}/books")
+    end
+
 end
