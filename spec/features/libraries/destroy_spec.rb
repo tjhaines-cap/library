@@ -10,7 +10,7 @@ RSpec.describe 'destroying a library', type: :feature do
         sheridan.books.create!(title: "Of Mice and Men", author: "John Steinbeck", copyright: 1937, available: false)
         sheridan.books.create!(title: "Pride and Prejudice", author: "Jane Austen", copyright: 1813, available: true)
 
-        visit '/libraries'
+        visit "/libraries/#{koelbel.id}"
         click_link "Delete #{koelbel.name} Library"
         
         expect(current_path).to eq('/libraries')
