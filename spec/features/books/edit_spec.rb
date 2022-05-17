@@ -25,7 +25,7 @@ RSpec.describe 'Book update', type: :feature do
         fill_in "title", with: "Dune"
         fill_in "author", with: "Frank Herbert"
         fill_in "copyright", with: 1965
-        fill_in "available", with: true
+        select("true", from: "available")
         click_button "Update Book"
 
         expect(current_path).to eq("/books/#{dune.id}")

@@ -70,5 +70,14 @@ RSpec.describe 'books index page', type: :feature do
         expect(page).to_not have_content("Of Mice and Men")
     end
 
+    it 'has link to book edit page' do
+        koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
+        dune = koelbel.books.create!(title: "Random", author: "Unknown", copyright: 1965, available: false)
+
+        visit "/books/#{dune.id}" 
+        click_link("Update Book")
+
+        expect(current_path).to eq("/books/#{dune.id}/edit")
+    end
    
 end

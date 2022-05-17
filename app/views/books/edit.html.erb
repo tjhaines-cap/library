@@ -9,7 +9,8 @@
     <%= form.text_field :copyright %>
     <br>
     <%= form.label :available %>
-    <%= form.text_field :available %>
+    <%= form.select :available, ["true", "false"] %>
+    
     <br>
 
     <%= form.submit "Update Book" %>
