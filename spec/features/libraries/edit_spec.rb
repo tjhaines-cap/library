@@ -11,7 +11,7 @@ RSpec.describe 'Library update', type: :feature do
         fill_in "name", with: "Koelbel"
         fill_in "branch_num", with: 2
         fill_in "city", with: "Centennial"
-        fill_in "open", with: false
+        select("false", from: "open")
         click_button "Update Library"
 
         expect(current_path).to eq("/libraries/#{koelbel.id}")
