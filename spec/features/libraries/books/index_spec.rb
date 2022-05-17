@@ -73,20 +73,59 @@ RSpec.describe 'Library books index', type: :feature do
     end
 
     it 'sorts the books alphabetically when link is clicked' do
-        koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
-        koelbel.books.create!(title: "Leaves of Grass", author: "Walt Whitman", copyright: 1855, available: true)
-        koelbel.books.create!(title: "The Sea-Wolf", author: "Jack London", copyright: 1904, available: true)
-        koelbel.books.create!(title: "Dune", author: "Frank Herbert", copyright: 1965, available: false)
-        koelbel.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
+        @koelbel.books.create!(title: "Dune", author: "Frank Herbert", copyright: 1965, available: true)
+        @koelbel.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
 
         visit "/libraries/#{@koelbel.id}/books"
         
+        within('#book-0') do
+            expect(page).to have_content("Leaves of Grass")
+            expect(page).to_not have_content("Dune")
+            expect(page).to_not have_content("Treasure Island")
+            expect(page).to_not have_content("The Sea-Wolf")
+        end
+        within('#book-1') do
+            expect(page).to have_content("The Sea-Wolf")
+            expect(page).to_not have_content("Dune")
+            expect(page).to_not have_content("Treasure Island")
+            expect(page).to_not have_content("Leaves of Grass")
+        end
+        within('#book-2') do
+            expect(page).to have_content("Dune")
+            expect(page).to_not have_content("Leaves of Grass")
+            expect(page).to_not have_content("Treasure Island")
+            expect(page).to_not have_content("The Sea-Wolf")
+        end
+        within('#book-3') do
+            expect(page).to have_content("Treasure Island")
+            expect(page).to_not have_content("Dune")
+            expect(page).to_not have_content("Leaves of Grass")
+            expect(page).to_not have_content("The Sea-Wolf")
+        end
         click_on "Sort books alphabetically"
-
+        
         within('#book-0') do
             expect(page).to have_content("Dune")
             expect(page).to_not have_content("Leaves of Grass")
+            expect(page).to_not have_content("Treasure Island")
             expect(page).to_not have_content("The Sea-Wolf")
+        end
+        within('#book-1') do
+            expect(page).to have_content("Leaves of Grass")
+            expect(page).to_not have_content("Treasure Island")
+            expect(page).to_not have_content("The Sea-Wolf")
+        end
+        within('#book-2') do
+            expect(page).to have_content("The Sea-Wolf")
+            expect(page).to_not have_content("Treasure Island")
+            expect(page).to_not have_content("Leaves of Grass")
+            expect(page).to_not have_content("Dune")
+        end
+        within('#book-3') do
+            expect(page).to have_content("Treasure Island")
+            expect(page).to_not have_content("Leaves of Grass")
+            expect(page).to_not have_content("The Sea-Wolf")
+            expect(page).to_not have_content("Dune")
         end
     end
 

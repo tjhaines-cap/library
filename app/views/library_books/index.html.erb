@@ -2,12 +2,14 @@
 <p><%= link_to "View all books", "/books" %></p>
 <p><%= link_to "Create Book", "/libraries/#{@library.id}/books/new" %></p>
 <p><%= link_to "Sort books alphabetically", "/libraries/#{@library.id}/books/sort" %></p>
-<% @books.each do |book| %>
-    <h3><%=book.title%></h3>
-    <p>ID: <%=book.id%></p>
-    <p>Author: <%=book.author%></p>
-    <p>Copyright: <%=book.copyright%></p>
-    <p>Available: <%=book.available ? "Yes" : "No" %></p>
-    <p>Created: <%=book.created_at %></p>
-    <p>Updated: <%=book.updated_at %></p>
+<% @books.each_with_index do |book, index| %>
+    <div id="book-<%= index %>">
+        <h3><%=book.title%></h3>
+        <p>ID: <%=book.id%></p>
+        <p>Author: <%=book.author%></p>
+        <p>Copyright: <%=book.copyright%></p>
+        <p>Available: <%=book.available ? "Yes" : "No" %></p>
+        <p>Created: <%=book.created_at %></p>
+        <p>Updated: <%=book.updated_at %></p>
+    </div>
 <% end %>
