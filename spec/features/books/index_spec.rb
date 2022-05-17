@@ -59,5 +59,16 @@ RSpec.describe 'books index page', type: :feature do
         expect(current_path).to eq("/libraries")
     end
 
+    it 'displays only available book' do
+        library = Library.create!(name: "Arapahoe", branch_num: 1, city: "Centennial", open: true)
+        book = library.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
+        book2 = library.books.create!(title: "Of Mice and Men", author: "John Steinbeck", copyright: 1937, available: false)
+       
+        visit "/books"
+
+        expect(page).to have_content("Treasure Island")
+        expect(page).to_not have_content("Of Mice and Men")
+    end
+
    
 end

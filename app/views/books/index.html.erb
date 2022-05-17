@@ -1,6 +1,7 @@
 <%= link_to "View all libraries", "/libraries" %> 
 <h1>Books</h1>
 <% @books.each do |book| %>
+    <% next if !book.available %>
     <h3><%= book.title %></h3>
     <p>ID: <%= book.id   %></p>
     <p>Author: <%= book.author %></p>
