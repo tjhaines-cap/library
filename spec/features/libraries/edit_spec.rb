@@ -1,14 +1,6 @@
 require 'rails_helper'
 
 RSpec.describe 'Library update', type: :feature do
-    it 'has link to library edit page' do
-        koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
-        visit '/libraries' 
-        
-        click_link("Update #{koelbel.name} Library")
-
-        expect(current_path).to eq("/libraries/#{koelbel.id}/edit")
-    end
 
     it 'can edit library' do
         koelbel = Library.create!(name: "Smoky Hill", branch_num: 1, city: "Arapahoe", open: true)
@@ -28,4 +20,5 @@ RSpec.describe 'Library update', type: :feature do
         expect(page).to have_content("Centennial")
         expect(page).to have_content("We are closed")
     end
+    
 end

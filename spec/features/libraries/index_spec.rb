@@ -18,6 +18,15 @@ RSpec.describe 'library index page', type: :feature do
         expect(current_path).to eq("/books")
     end
 
+    it 'has link to library edit page' do
+        koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
+        visit '/libraries' 
+        
+        click_link("Update #{koelbel.name} Library")
+
+        expect(current_path).to eq("/libraries/#{koelbel.id}/edit")
+    end
+
     it 'displays the libraries in the order they were created, most recent first' do
         library = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
         library2 = Library.create!(name: "Sheridan", branch_num: 2, city: "Denver", open: false)
