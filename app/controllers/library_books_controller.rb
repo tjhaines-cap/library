@@ -14,6 +14,11 @@ class LibraryBooksController < ApplicationController
         redirect_to "/libraries/#{library.id}/books"
     end
 
+    def sort
+        @books = Book.order_by_title
+        redirect_to "/libraries/#{params[:library_id]}/books"
+    end
+
     private
 
         def book_params

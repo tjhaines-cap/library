@@ -1,7 +1,7 @@
 <p><%= link_to "View all libraries", "/libraries" %></p>
 <p><%= link_to "View all books", "/books" %></p>
 <p><%= link_to "Create Book", "/libraries/#{@library.id}/books/new" %></p>
-<p><%= link_to "Sort books alphabetically", "/libraries/#{@library.id}/books" %></p>
+<p><%= link_to "Sort books alphabetically", "/libraries/#{@library.id}/books/sort" %></p>
 <% @books.each do |book| %>
     <h3><%=book.title%></h3>
     <p>ID: <%=book.id%></p>
