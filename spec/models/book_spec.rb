@@ -14,4 +14,17 @@ RSpec.describe Book, type: :model do
         it { should belong_to :library }
     end
 
+    describe 'available' do
+        it 'returns only books with available = true' do
+            koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
+            book1 = koelbel.books.create!(title: "Leaves of Grass", author: "Walt Whitman", copyright: 1855, available: true)
+            book2 = koelbel.books.create!(title: "The Sea-Wolf", author: "Jack London", copyright: 1904, available: true)
+            book3 = koelbel.books.create!(title: "Dune", author: "Frank Herbert", copyright: 1965, available: false)
+            book4 = koelbel.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
+
+            available_books = Book.available
+            expect(available_books).to eq([book1, book2, book4])
+        end
+    end
+
 end
