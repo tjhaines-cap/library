@@ -2,6 +2,7 @@
 <p><%= link_to "View all books", "/books" %></p> 
 <p><%= link_to "View #{@library.name} library book list", "/libraries/#{@library.id}/books" %></p> 
 <h1><%= @library.name %></h1>
+<%= link_to "Update #{@library.name} Library", "/libraries/#{@library.id}/edit"%>
 <p>We have <%= @library.books.count %> books</p>
 <p>Branch number: <%= @library.branch_num %></p>
 <p>City: <%= @library.city %></p>
