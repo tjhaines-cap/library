@@ -11,6 +11,7 @@ class LibrariesController < ApplicationController
     end
 
     def create
+        # binding.pry
         library = Library.create!(library_params)
         redirect_to "/libraries"
     end
@@ -24,6 +25,13 @@ class LibrariesController < ApplicationController
         library = Library.find(params[:library_id])
         library.update(library_params)
         redirect_to "/libraries/#{library.id}"
+    end
+
+    def destroy
+        library = Library.find(params[:library_id])
+        library.books.destroy_all
+        library.destroy
+        redirect_to '/libraries'
     end
 
     private
