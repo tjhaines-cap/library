@@ -134,10 +134,10 @@ RSpec.describe 'Library books index', type: :feature do
         @koelbel.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
 
         visit "/libraries/#{@koelbel.id}/books"
-
+    
         fill_in('threshold', with: 1900)
         
-        click_button 'Only return records with more than `number` of `copyright`'
+        click_button 'Only return records more recent than given copyright year'
         
         expect(current_path).to eq("/libraries/#{@koelbel.id}/books")
         expect(page).to have_content("The Sea-Wolf")
