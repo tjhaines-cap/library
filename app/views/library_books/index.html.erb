@@ -15,9 +15,9 @@
     </div>
 <% end %>
 <br>
-<%= form_with url: "/libraries/#{@library.id}/books/threshold", method: :get, local: true do |form| %>
+<%= form_with url: "/libraries/#{@library.id}/books", method: :get, local: true do |form| %>
     <%= form.label :copyright_year %>
-    <%= form.number_field :copyright_year %>
+    <%= form.number_field :threshold %>
     
-    <%= form.submit "Only return records with more than `number` of `copyright`" %>
+    <%= form.submit "Only return records more recent than given copyright year" %>
 <% end %>
