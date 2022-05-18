@@ -5,7 +5,8 @@ application up and running.
 
 Schema
 
-![library_books_schema](https://user-images.githubusercontent.com/60715457/169100309-d9c93790-12af-4615-8adc-addb74119b38.png)
+![Screen Shot 2022-05-18 at 3 44 11 PM](https://user-images.githubusercontent.com/60715457/169161038-a3c1d647-cd9c-4b4a-8ff3-448e3b6fc959.png)
+
 
 
 
