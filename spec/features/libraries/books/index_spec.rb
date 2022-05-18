@@ -129,4 +129,21 @@ RSpec.describe 'Library books index', type: :feature do
         end
     end
 
+    it 'has form to input a number value in' do
+        @koelbel.books.create!(title: "Dune", author: "Frank Herbert", copyright: 1965, available: true)
+        @koelbel.books.create!(title: "Treasure Island", author: "Robert Louis Stevenson", copyright: 1883, available: true)
+
+        visit "/libraries/#{@koelbel.id}/books"
+
+        fill_in('copyright_year', with: 1900)
+        
+        click_button 'Only return records with more than `number` of `copyright`'
+        
+        expect(current_path).to eq("/libraries/#{@koelbel.id}/books")
+        expect(page).to have_content("The Sea-Wolf")
+        expect(page).to have_content("Dune")
+        expect(page).to_not have_content("Leaves of Grass")
+        expect(page).to_not have_content("Treasure Island")
+    end
+
 end
