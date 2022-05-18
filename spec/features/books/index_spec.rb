@@ -79,5 +79,29 @@ RSpec.describe 'books index page', type: :feature do
 
         expect(current_path).to eq("/books/#{dune.id}/edit")
     end
+
+    it 'has link for each book to go to that show page' do
+        sheridan = Library.create!(name: "Sheridan", branch_num: 3, city: "Denver", open: false)
+        alice = sheridan.books.create!(title: "Alice's Adventures in Wonderland", author: "Lewis Carroll", copyright: 1865, available: true)
+        twenty = sheridan.books.create!(title: "Twenty Thousand Leagues Under the Sea", author: "Jules Verne", copyright: 1870, available: true)
+        secret = sheridan.books.create!(title: "The Secret Garden", author: "Frances Hodgson Burnett", copyright: 1987, available: true)
+
+        visit "/books"
+        click_link("View #{alice.title}")
+
+        expect(current_path).to eq("/books/#{alice.id}")
+        expect(page).to have_content("Alice's Adventures in Wonderland")
+        expect(page).to have_content("Lewis Carroll")
+        expect(page).to_not have_content("Twenty Thousand Leagues Under the Sea")
+
+        visit "/books"
+        click_link("View #{twenty.title}")
+
+        expect(current_path).to eq("/books/#{twenty.id}")
+        expect(page).to have_content("Twenty Thousand Leagues Under the Sea")
+        expect(page).to have_content(twenty.author)
+        expect(page).to_not have_content(secret.title)
+        expect(page).to_not have_content(alice.title)
+    end
    
 end
