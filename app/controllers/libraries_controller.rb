@@ -11,7 +11,6 @@ class LibrariesController < ApplicationController
     end
 
     def create
-        # binding.pry
         library = Library.create!(library_params)
         redirect_to "/libraries"
     end
@@ -36,7 +35,7 @@ class LibrariesController < ApplicationController
 
     private
     
-    def library_params
-        params.permit(:name, :branch_num, :city, :open)
-    end
+        def library_params
+            params.permit(:name, :branch_num, :city, :open)
+        end
 end
