@@ -5,7 +5,7 @@
 <%= link_to "Update #{@library.name} Library", "/libraries/#{@library.id}/edit"%>
 <br>
 <%= link_to "Delete #{@library.name} Library", "/libraries/#{@library.id}", method: :delete %>        
-<p>We have <%= @library.books.count %> books</p>
+<p>We have <%= @library.count_books %> books</p>
 <p>Branch number: <%= @library.branch_num %></p>
 <p>City: <%= @library.city %></p>
 <% if @library.open %>
