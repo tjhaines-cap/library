@@ -135,7 +135,7 @@ RSpec.describe 'Library books index', type: :feature do
 
         visit "/libraries/#{@koelbel.id}/books"
 
-        fill_in('copyright_year', with: 1900)
+        fill_in('threshold', with: 1900)
         
         click_button 'Only return records with more than `number` of `copyright`'
         

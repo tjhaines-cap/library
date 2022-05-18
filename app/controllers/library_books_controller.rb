@@ -24,10 +24,6 @@ class LibraryBooksController < ApplicationController
         redirect_to action: "index", sort_param: true
     end
 
-    def threshold
-        redirect_to action: "index", threshold: params[:copyright_year] 
-    end
-
     private
 
         def book_params
