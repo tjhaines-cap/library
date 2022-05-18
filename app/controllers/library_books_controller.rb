@@ -1,6 +1,5 @@
 class LibraryBooksController < ApplicationController
     def index
-        # binding.pry
         @library = Library.find(params[:library_id])
         if params[:sort_param]
             @books = @library.books.order_by_title
@@ -17,7 +16,7 @@ class LibraryBooksController < ApplicationController
 
     def create
         library = Library.find(params[:library_id])
-        book = library.books.create!(book_params)
+        library.books.create!(book_params)
         redirect_to "/libraries/#{library.id}/books"
     end
 
@@ -27,8 +26,6 @@ class LibraryBooksController < ApplicationController
     end
 
     def threshold
-        library = Library.find(params[:library_id])
-        Book.records_over_threshold(:copyright_year)
         redirect_to action: "index", threshold: params[:copyright_year] 
     end
 

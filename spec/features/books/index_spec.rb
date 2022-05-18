@@ -37,8 +37,8 @@ RSpec.describe 'books index page', type: :feature do
         book2 = library.books.create!(title: "Of Mice and Men", author: "John Steinbeck", copyright: 1937, available: true)
         visit "/books"
        
-        expect(page).to have_content("Available: #{book.available}")
-        expect(page).to have_content("Available: #{book2.available}")
+        expect(page).to have_content("Available: Yes")
+        expect(page).to have_content("Available: Yes")
     end
 
     it 'displays id, created_at, and updated_at attributes' do
