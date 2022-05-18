@@ -21,7 +21,6 @@ class LibraryBooksController < ApplicationController
     end
 
     def sort
-        @books = Book.order_by_title
         redirect_to action: "index", sort_param: true
     end
 
