@@ -43,7 +43,6 @@ RSpec.describe 'destroy book', type: :feature do
         book4 = sheridan.books.create!(title: "Pride and Prejudice", author: "Jane Austen", copyright: 1813, available: true)
 
         visit "/libraries/#{koelbel.id}/books"
-        save_and_open_page
         click_link("Delete #{book2.title}")
 
         expect(current_path).to eq("/books")
