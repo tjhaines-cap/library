@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe 'destroying a library', type: :feature do
     
-    it 'can delete the library from the index page' do
+    it 'can delete the library from a link on the show page' do
         koelbel = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
         koelbel.books.create!(title: "Leaves of Grass", author: "Walt Whitman", copyright: 1855, available: true)
         koelbel.books.create!(title: "The Sea-Wolf", author: "Jack London", copyright: 1904, available: true)
