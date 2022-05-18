@@ -5,6 +5,8 @@
         <p>
             <%= library.name %> created: <%= library.created_at %> 
             <%= link_to "Update #{library.name} Library", "/libraries/#{library.id}/edit"%>
+            <br>
+            <%= link_to "Delete #{library.name} Library", "/libraries/#{library.id}", method: :delete %>        
         </p>
     </div>
 <% end %>
