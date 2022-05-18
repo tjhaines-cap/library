@@ -82,8 +82,8 @@ RSpec.describe 'books index page', type: :feature do
 
     it 'has link for each book to go to that show page' do
         sheridan = Library.create!(name: "Sheridan", branch_num: 3, city: "Denver", open: false)
-        alice = sheridan.books.create!(title: "Alice's Adventures in Wonderland", author: "Lewis Carroll", copyright: 1865, available: false)
-        twenty = sheridan.books.create!(title: "Twenty Thousand Leagues Under the Sea", author: "Jules Verne", copyright: 1870, available: false)
+        alice = sheridan.books.create!(title: "Alice's Adventures in Wonderland", author: "Lewis Carroll", copyright: 1865, available: true)
+        twenty = sheridan.books.create!(title: "Twenty Thousand Leagues Under the Sea", author: "Jules Verne", copyright: 1870, available: true)
         secret = sheridan.books.create!(title: "The Secret Garden", author: "Frances Hodgson Burnett", copyright: 1987, available: true)
 
         visit "/books"

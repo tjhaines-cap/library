@@ -8,6 +8,7 @@
     <p>Available: <%= book.available %></p>
     <p>Created: <%= book.created_at %></p>
     <p>Updated: <%= book.updated_at %></p>
+    <%= link_to "View #{book.title}", "/books/#{book.id}"%></p>
     <%= link_to "Update Book", "/books/#{book.id}/edit" %>
     <%= link_to "Delete #{book.title}", "/books/#{book.id}", method: :delete %>        
 <% end %>
