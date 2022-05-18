@@ -11,6 +11,7 @@
         <p>Available: <%=book.available ? "Yes" : "No" %></p>
         <p>Created: <%=book.created_at %></p>
         <p>Updated: <%=book.updated_at %></p>
+        <%= link_to "Delete #{book.title}", "/books/#{book.id}", method: :delete %>        
     </div>
 <% end %>
 <br>
