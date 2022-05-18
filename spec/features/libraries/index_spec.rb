@@ -51,5 +51,19 @@ RSpec.describe 'library index page', type: :feature do
         end
     end
 
+    it 'has link for each library to go to that show page' do
+        library = Library.create!(name: "Koelbel", branch_num: 1, city: "Centennial", open: true)
+        library2 = Library.create!(name: "Sheridan", branch_num: 2, city: "Denver", open: false)
+        library3 = Library.create!(name: "Smoky Hill", branch_num: 5, city: "Centennial", open: true)
+        
+        visit "/libraries"
+        click_link("View #{library.name} Library")
+
+        expect(current_path).to eq("/libraries/#{library.name}")
+        expect(page).to have_content("Keolbel")
+        expect(page).to have_content("Centennial")
+        expect(page).to_not have_content("Sheridan")
+    end
+
     
 end
