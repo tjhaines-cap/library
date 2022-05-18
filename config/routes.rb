@@ -16,4 +16,5 @@ Rails.application.routes.draw do
   get '/libraries/:library_id/books/sort', to: 'library_books#sort'
   delete '/libraries/:library_id', to: 'libraries#destroy'
   delete '/books/:book_id', to: 'books#destroy'
+  get '/libraries/:library_id/books/threshold', to: 'library_books#threshold'
 end
