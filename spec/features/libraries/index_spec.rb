@@ -59,10 +59,19 @@ RSpec.describe 'library index page', type: :feature do
         visit "/libraries"
         click_link("View #{library.name} Library")
 
-        expect(current_path).to eq("/libraries/#{library.name}")
-        expect(page).to have_content("Keolbel")
+        expect(current_path).to eq("/libraries/#{library.id}")
+        expect(page).to have_content("Koelbel")
         expect(page).to have_content("Centennial")
         expect(page).to_not have_content("Sheridan")
+
+        visit "/libraries"
+        click_link("View #{library2.name} Library")
+
+        expect(current_path).to eq("/libraries/#{library2.id}")
+        expect(page).to have_content("Sheridan")
+        expect(page).to have_content("Denver")
+        expect(page).to_not have_content("Smoky Hill")
+        expect(page).to_not have_content("Koelbel")
     end
 
     
