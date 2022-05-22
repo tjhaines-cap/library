@@ -4,14 +4,14 @@ class Book < ApplicationRecord
     validates :available, inclusion: [true, false]
 
     def self.available
-        Book.where(available: true)
+        where(available: true)
     end
 
     def self.order_by_title
-        Book.order(:title)
+        order(:title)
     end
 
     def self.records_over_threshold(year)
-        Book.where("copyright >= #{year}")
+        where("copyright >= #{year}")
     end
 end

@@ -8,6 +8,6 @@ class Library < ApplicationRecord
     end
 
     def self.order_by_recent
-        Library.order(created_at: :desc)
+        order(created_at: :desc)
     end
 end
